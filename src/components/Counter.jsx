@@ -17,20 +17,24 @@ const Counter = () => {
   }; // change the color of the header
 
   useEffect(() => {
-    document.title = `Count:  ${counter}${color}`;
+    document.querySelector('.counterHeader').textContent = `Count:  ${counter}${color}`;
+  }, [counter,color]); // change this to [color] to update text when color changes
+  useEffect(() => {
+    document.title= `Count:  ${counter},${color}`;
   }, [counter,color]); // change this to [color] to update text when color changes
 
   return (
     <div className="counter">
       <h1 className="counterHeader" style={{ color: color }}>Counter: {counter}</h1>
       <br />
-      <button className="add" onClick={add}>
+      <div className="buttonContainer"> <button className="add" onClick={add}>
         +1
       </button>
       <button className="subtraction" onClick={subtraction}>
         -1
       </button>
-      <button className="changeColor" onClick={changeColor}>Change Color</button>
+      <button className="changeColor" onClick={changeColor}>Change Color</button></div>
+     
     </div>
   );
 };
