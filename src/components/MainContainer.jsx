@@ -1,5 +1,5 @@
 import Counter from "./Counter"
-const MainContainer=()=>{
+const MainContainer=({dark})=>{
     return (<div className="mainContainer"><Counter/></div>)
 }
 export default MainContainer
